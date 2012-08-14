@@ -2,5 +2,9 @@
 layout: default
 title: subrational
 ---
-
 <h1>Subrational</h1>
+<ul>
+  {% for post in site.posts %}
+    <li>{{ post.title }}</li>
+  {% endfor %}
+</ul>
