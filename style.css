@@ -1,0 +1,17 @@
+@font-face {
+  font-family: 'Subtle Sans';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Subtle Sans'), local('SubtleSans'), url(/assets/fonts/SubtleSansLight.otf) format('opentype');
+}
+body {
+  background: url('/assets/images/background.png');
+}
+h1 {
+  font-family: 'Subtle Sans';
+  font-size: 42pt;
+  position: absolute;
+  top: 40px;
+  left: 60px;
+  color: #1D2135;
+}
