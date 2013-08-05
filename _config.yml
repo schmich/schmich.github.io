@@ -1,5 +1,7 @@
-exclude:  [Gemfile, Gemfile.lock, Procfile, Rakefile, vendor, gems]
+url: http://subrational.com
+exclude:  [Gemfile, Gemfile.lock, Procfile, Rakefile, vendor, gems, publish]
 pygments: true
+permalink: pretty
 sass:
   syntax: scss
   style: compressed
