@@ -1,5 +1,5 @@
 url: http://subrational.com
-exclude:  [Gemfile, Gemfile.lock, Procfile, Rakefile, vendor, gems, publish]
+exclude:  [Gemfile, Gemfile.lock, Procfile, Rakefile, README.md, vendor, gems, publish]
 pygments: true
 permalink: pretty
 sass:
