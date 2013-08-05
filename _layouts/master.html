@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+  {% if page.title %}
+    <title>{{ page.title }} // subrational</title>
+  {% else %}
+    <title>subrational</title>
+  {% endif %}
+  <link href='http://fonts.googleapis.com/css?family=Droid+Sans+Mono|Oswald:300|Francois+One' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="/assets/stylesheets/reset.css" />
+  <link rel="stylesheet" type="text/css" href="/assets/stylesheets/style.css" />
+  <link rel="stylesheet" type="text/css" href="/assets/stylesheets/syntax.css" />
+</head>
+<body>
+  {{ content }}
+</body>
+</html>

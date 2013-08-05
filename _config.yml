@@ -1,1 +1,2 @@
 exclude:  [Gemfile, Gemfile.lock, Procfile, Rakefile, vendor, gems]
+pygments: true

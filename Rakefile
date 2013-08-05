@@ -2,6 +2,11 @@ def dep(task, *args)
   Rake::Task[task].invoke(*args)
 end
 
+desc 'Start server'
+task :start do
+  sh 'jekyll serve --watch'
+end
+
 desc 'Publish on Heroku'
 task :publish => [:ensure_git, :ensure_master]  do
   dep :require_remote, 'heroku', 'git@heroku.com:subrational.git'
@@ -16,14 +21,12 @@ end
 
 task :ensure_master => :ensure_git do
   unless (`git branch --no-color`.strip rescue '') =~ /^*\s+master$/
-    puts 'You must publish from the master branch.'
-    exit!
+    abort 'You must publish from the master branch.'
   end
 end
 
 task :ensure_git do
   if (`git` rescue nil).nil?
-    puts 'git not present.'
-    exit!
+    abort 'git not present.'
   end
 end

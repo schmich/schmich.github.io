@@ -1,15 +1,8 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>{{ page.title }} &#183; subrational</title>
-  <link rel="stylesheet" type="text/css" href="assets/stylesheets/reset.css" />
-  <link rel="stylesheet" type="text/css" href="assets/stylesheets/style.css" />
-</head>
-<body>
-  <h1>{{ page.title }}</h1>
-  <h2>{{ page.date | date_to_string }}</h2>
-  <p>
-    {{ content }}
-  </p>
-</body>
-</html>
+---
+layout: default
+---
+<h2><a href="{{ page.url }}">{{ page.title }}</a></h2>
+<h3 class="date">{{ page.date | date: '%Y %h %d' }}</h3>
+<div class="post">
+  {{ content }}
+</div>

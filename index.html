@@ -1,10 +1,12 @@
 ---
 layout: default
-title: subrational
 ---
-<h1>Subrational</h1>
 <ul>
   {% for post in site.posts %}
-    <li>{{ post.title }}</li>
+    <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
+    <h3 class="date">{{ post.date | date: '%Y %h %d' }}</h3>
+    <div class="post">
+      {{ post.content }}
+    </div>
   {% endfor %}
 </ul>
