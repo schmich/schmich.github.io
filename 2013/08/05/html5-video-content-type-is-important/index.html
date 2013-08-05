@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  
+    <title>HTML5 video: Content-Type is important // subrational</title>
+  
+  <link href='http://fonts.googleapis.com/css?family=Droid+Sans+Mono|Oswald:300|Francois+One' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="/assets/styles/reset.css" />
+  <link rel="stylesheet" type="text/css" href="/assets/styles/style.css" />
+  <link rel="stylesheet" type="text/css" href="/assets/styles/syntax.css" />
+</head>
+<body>
+  <h1><a href="/">SUBRATIONAL</a></h1>
+<h2><a href="/2013/08/05/html5-video-content-type-is-important/">HTML5 video: Content-Type is important</a></h2>
+<h3 class="date">2013 Aug 05</h3>
+<div class="post">
+  <p>If you&#8217;re trying to play HTML5 video with the <code>&lt;video/&gt;</code> tag, ensure the correct <code>Content-Type</code> header is being sent for your source media.</p>
+
+<p>Some browsers, such as Chrome, seem willing to play a video regardless of its <code>Content-Type</code> (perhaps through sniffing or file extensions), but others, such as IE, require a valid and supported value.</p>
+
+<p>I ran into this while trying to play videos hosted on S3 with IE10:</p>
+<div class='highlight'><pre><code class='html'><span class='nt'>&lt;video</span> <span class='na'>controls</span> <span class='na'>autoplay</span><span class='nt'>&gt;</span>
+  <span class='nt'>&lt;source</span> <span class='na'>src=</span><span class='s'>&quot;http://s3-us-west-1.amazonaws.com/foo/bar.mp4&quot;</span> <span class='na'>type=</span><span class='s'>&quot;video/mp4&quot;</span> <span class='nt'>/&gt;</span>
+<span class='nt'>&lt;/video&gt;</span>
+</code></pre></div>
+<p>Even with the <code>type</code> attribute set to <code>video/mp4</code>, IE refused to play the video, saying only &#8220;Invalid Source&#8221; or &#8220;Error: Unsupported video type or invalid file path&#8221;. Some searching yielded <a href='http://blogs.msdn.com/b/thebeebs/archive/2011/07/20/html5-video-not-working-in-ie9-some-tips-to-debug.aspx'>this blog post</a> detailing common problems.</p>
+
+<p>The error coming from the video element in IE was <code>MEDIA_ERR_SRC_NOT_SUPPORTED</code>. In my case, the source wasn&#8217;t supported because the MIME type being sent was not supported.</p>
+
+<pre><code>$ curl -I http://s3-us-west-1.amazonaws.com/foo/bar.mp4
+HTTP/1.1 200 OK
+Date: Fri, 14 Jun 2013 03:24:53 GMT
+Last-Modified: Fri, 14 Jun 2013 03:24:40 GMT
+Content-Type: application/octet-stream
+Content-Length: 9227881
+Server: AmazonS3
+...</code></pre>
+
+<p>Apparently after uploading the video, S3 automatically set its <code>Content-Type</code> to <code>application/octet-stream</code>, which IE does not support.</p>
+
+<p>This is normally not a problem when serving videos from a web server such as Apache, since the server is usually configured to send the <code>Content-Type</code> header based on the file extension, but many cloud storage services like S3 require you to specify your own metadata.</p>
+
+<p>We were uploading videos using the <a href='http://aws.amazon.com/sdkforruby/'>AWS Ruby SDK</a>, so the fix was to simply specify <code>:content-type</code> when uploading the file via <a href='http://docs.aws.amazon.com/AWSRubySDK/latest/AWS/S3/S3Object.html#write-instance_method'>S3Object#write</a>:</p>
+<div class='highlight'><pre><code class='ruby'><span class='n'>obj</span><span class='o'>.</span><span class='n'>write</span><span class='p'>(</span><span class='ss'>:content_type</span> <span class='o'>=&gt;</span> <span class='s1'>&#39;video/mp4&#39;</span><span class='p'>,</span> <span class='o'>.</span><span class='n'>.</span><span class='o'>.</span><span class='p'>)</span>
+</code></pre></div>
+<p>If you need to support a wider range of MIME types, consider using the <a href='https://github.com/halostatue/mime-types'>mime-types</a> gem and <code>MIME::Types.type_for</code>.</p>
+</div>
+
+
+</body>
+</html>
