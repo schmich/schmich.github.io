@@ -23,7 +23,7 @@ Even with the `type` attribute set to `video/mp4`, IE refused to play the video,
 detailing common problems.
 
 The error coming from the video element in IE was `MEDIA_ERR_SRC_NOT_SUPPORTED`. In my case, the source wasn't supported
-because the MIME type being sent was not supported.
+because the MIME type being sent was not supported:
 
     $ curl -I http://s3-us-west-1.amazonaws.com/foo/bar.mp4
     HTTP/1.1 200 OK
