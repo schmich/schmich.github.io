@@ -7,6 +7,10 @@ task :publish => :build do
   source = '_site'
   target = 'publish'
 
+  if !Dir.exists?(target)
+    sh "git clone -b master git@github.com:schmich/schmich.github.io.git #{target}"
+  end
+
   puts 'Publishing to schmich.github.io.'
   Dir["#{target}/*"].each(&method(:rm_rf))
 
@@ -17,6 +21,7 @@ task :publish => :build do
   cp_r "#{source}/.", target
 
   cd target do
+    sh 'git pull --ff-only'
     sh 'git add .'
     sh 'git add -u'
 
