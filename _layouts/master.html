@@ -2,14 +2,15 @@
 <html>
 <head>
   {% if page.title %}
-    <title>{{ page.title }} // subrational</title>
+    <title>{{ page.title }} // {{ site.name }}</title>
   {% else %}
-    <title>subrational</title>
+    <title>{{ site.name }}</title>
   {% endif %}
   <link href='http://fonts.googleapis.com/css?family=PT+Serif|Bitter|Oxygen+Mono|Oswald:300' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" type="text/css" href="/assets/styles/reset.css" />
   <link rel="stylesheet" type="text/css" href="/assets/styles/style.css" />
   <link rel="stylesheet" type="text/css" href="/assets/styles/syntax.css" />
+  <link href="/feed.xml" type="application/rss+xml" rel="alternate" title="{{ site.name }}" />
   <script src="/assets/scripts/ga.js"></script>
 </head>
 <body>
