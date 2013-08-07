@@ -34,7 +34,7 @@ end
 
 desc 'Start server'
 task :start do
-  sh 'jekyll serve --watch'
+  sh 'jekyll serve --watch --drafts'
 end
 
 desc 'Build site'
