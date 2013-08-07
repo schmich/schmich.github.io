@@ -16,10 +16,11 @@
   <h1><a href="/">SUBRATIONAL</a></h1>
 <ul>
   
-    <h2><a href="/2013/08/05/html5-video-content-type-is-important/">HTML5 video: Content-Type is important</a></h2>
-    <h3 class="date">2013 Aug 05</h3>
-    <div class="post">
-      <p>If you&#8217;re trying to play HTML5 video with the <code>&lt;video/&gt;</code> tag, ensure the correct <code>Content-Type</code> header is being sent for your source media.</p>
+    <li>
+      <h2><a href="/2013/08/05/html5-video-content-type-is-important/">HTML5 video: Content-Type is important</a></h2>
+      <h3 class="date">2013 Aug 05</h3>
+      <div class="post">
+        <p>If you&#8217;re trying to play HTML5 video with the <code>&lt;video/&gt;</code> tag, ensure the correct <code>Content-Type</code> header is being sent for your source media.</p>
 
 <p>Some browsers, such as Chrome, seem willing to play a video regardless of its <code>Content-Type</code> (perhaps through sniffing or file extensions), but others, such as IE, require a valid and supported value.</p>
 
@@ -49,10 +50,12 @@ Server: AmazonS3
 <div class='highlight'><pre><code class='ruby'><span class='n'>obj</span><span class='o'>.</span><span class='n'>write</span><span class='p'>(</span><span class='ss'>:content_type</span> <span class='o'>=&gt;</span> <span class='s1'>&#39;video/mp4&#39;</span><span class='p'>,</span> <span class='o'>.</span><span class='n'>.</span><span class='o'>.</span><span class='p'>)</span>
 </code></pre></div>
 <p>If you need to support a wider range of MIME types, consider using the <a href='https://github.com/halostatue/mime-types'>mime-types</a> gem and <code>MIME::Types.type_for</code>.</p>
-    </div>
+      </div>
+    </li>
   
 </ul>
 
+<div class="footer">&lambda;</div>
 
 </body>
 </html>
