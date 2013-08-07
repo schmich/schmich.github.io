@@ -7,6 +7,34 @@
     <atom:link href="http://subrational.com/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
+        <title>Cut-copy-paste in Vim</title>
+        <description>&lt;p&gt;I love Vim, but I also have &lt;code&gt;Ctrl+X&lt;/code&gt;, &lt;code&gt;Ctrl+C&lt;/code&gt;, &lt;code&gt;Ctrl+V&lt;/code&gt; permanently burned into my brain. Can we consolidate these two worlds? Yes! Mostly.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;mswin.vim&lt;/code&gt; is distributed with Vim and offers some hints, but it brings a bit of extra baggage, and still doesn&amp;#8217;t behave as I&amp;#8217;d expect. Instead, I am doing the following:&lt;/p&gt;
+&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='text'&gt;vnor &amp;lt;C-X&amp;gt; &amp;quot;+x
+vnor &amp;lt;C-C&amp;gt; &amp;quot;+y
+inor &amp;lt;C-V&amp;gt; &amp;lt;C-O&amp;gt;:set paste&amp;lt;CR&amp;gt;&amp;lt;C-R&amp;gt;+&amp;lt;C-O&amp;gt;:set nopaste&amp;lt;CR&amp;gt;
+vnor &amp;lt;C-V&amp;gt; :&amp;lt;C-U&amp;gt;set paste&amp;lt;CR&amp;gt;gvc&amp;lt;C-R&amp;gt;+&amp;lt;C-O&amp;gt;:set nopaste&amp;lt;CR&amp;gt;&amp;lt;ESC&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;You can cut and copy in visual mode.&lt;/li&gt;
+
+&lt;li&gt;You can paste in insert mode or visual mode (replacing your selection).&lt;/li&gt;
+
+&lt;li&gt;Pasting does not result in poor formatting.&lt;/li&gt;
+
+&lt;li&gt;&lt;code&gt;Ctrl+V&lt;/code&gt; still does visual block selection.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;For me, at least, this scheme offers the best tradeoffs with the least surprise.&lt;/p&gt;
+
+&lt;p&gt;Cut and copy are just using the &lt;code&gt;+&lt;/code&gt; clipboard register, and paste is just doing &lt;code&gt;&amp;lt;C-R&amp;gt;+&lt;/code&gt; (see &lt;code&gt;:h i_ctrl-r&lt;/code&gt;) in between &lt;code&gt;paste&lt;/code&gt;/&lt;code&gt;nopaste&lt;/code&gt; to preserve the text without having Vim reformat it. Ugly, but it works.&lt;/p&gt;</description>
+        <pubDate>Tue, 06 Aug 2013 00:00:00 -0700</pubDate>
+        <link>http://subrational.com/2013/08/06/cut-copy-paste-in-vim/</link>
+        <guid isPermaLink="true">http://subrational.com/2013/08/06/cut-copy-paste-in-vim/</guid>
+      </item>
+    
+      <item>
         <title>HTML5 video: Content-Type is important</title>
         <description>&lt;p&gt;If you&amp;#8217;re trying to play HTML5 video with the &lt;code&gt;&amp;lt;video/&amp;gt;&lt;/code&gt; tag, ensure the correct &lt;code&gt;Content-Type&lt;/code&gt; header is being sent for your source media.&lt;/p&gt;
 

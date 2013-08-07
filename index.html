@@ -17,6 +17,34 @@
 <ul>
   
     <li>
+      <h2><a href="/2013/08/06/cut-copy-paste-in-vim/">Cut-copy-paste in Vim</a></h2>
+      <h3 class="date">2013 Aug 06</h3>
+      <div class="post">
+        <p>I love Vim, but I also have <code>Ctrl+X</code>, <code>Ctrl+C</code>, <code>Ctrl+V</code> permanently burned into my brain. Can we consolidate these two worlds? Yes! Mostly.</p>
+
+<p><code>mswin.vim</code> is distributed with Vim and offers some hints, but it brings a bit of extra baggage, and still doesn&#8217;t behave as I&#8217;d expect. Instead, I am doing the following:</p>
+<div class='highlight'><pre><code class='text'>vnor &lt;C-X&gt; &quot;+x
+vnor &lt;C-C&gt; &quot;+y
+inor &lt;C-V&gt; &lt;C-O&gt;:set paste&lt;CR&gt;&lt;C-R&gt;+&lt;C-O&gt;:set nopaste&lt;CR&gt;
+vnor &lt;C-V&gt; :&lt;C-U&gt;set paste&lt;CR&gt;gvc&lt;C-R&gt;+&lt;C-O&gt;:set nopaste&lt;CR&gt;&lt;ESC&gt;
+</code></pre></div>
+<ul>
+<li>You can cut and copy in visual mode.</li>
+
+<li>You can paste in insert mode or visual mode (replacing your selection).</li>
+
+<li>Pasting does not result in poor formatting.</li>
+
+<li><code>Ctrl+V</code> still does visual block selection.</li>
+</ul>
+
+<p>For me, at least, this scheme offers the best tradeoffs with the least surprise.</p>
+
+<p>Cut and copy are just using the <code>+</code> clipboard register, and paste is just doing <code>&lt;C-R&gt;+</code> (see <code>:h i_ctrl-r</code>) in between <code>paste</code>/<code>nopaste</code> to preserve the text without having Vim reformat it. Ugly, but it works.</p>
+      </div>
+    </li>
+  
+    <li>
       <h2><a href="/2013/08/05/html5-video-content-type-is-important/">HTML5 video: Content-Type is important</a></h2>
       <h3 class="date">2013 Aug 05</h3>
       <div class="post">
