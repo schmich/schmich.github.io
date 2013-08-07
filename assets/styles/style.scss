@@ -1,9 +1,29 @@
+@mixin transition($props...) {
+  @include prop(transition, $props, -webkit -moz -ms -o);
+}
+@mixin prop($property, $value, $prefixes: -webkit -khtml -moz -ms -o) {
+  @each $prefix in $prefixes {
+    #{$prefix}-#{$property}: $value;
+  }
+
+  #{$property}: $value;
+}
+@mixin opacity($opacity) {
+  -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=$opacity)";
+  filter: alpha(opacity=$opacity);
+  -moz-opacity: $opacity;
+  -khtml-opacity: $opacity;
+  opacity: $opacity;
+}
 @mixin font-size($rem) {
   font-size: $rem * 10 + px;
   font-size: $rem + rem;
 }
 @mixin serif {
   font-family: 'PT Serif', serif;
+}
+@mixin sans-serif {
+  font-family: Verdana, Helvetica, sans-serif;
 }
 @mixin monospace {
   font-family: 'Oxygen Mono', monospace;
@@ -33,8 +53,8 @@ a:hover {
 h1, h1 a, h1 a:hover {
   @include font-size(3.2);
   font-family: 'Bitter', serif;
-  margin-top: 4rem;
-  margin-bottom: 6rem;
+  padding-top: 4rem;
+  padding-bottom: 1rem;
   color: #333 !important;
   text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);
   text-align: center;
@@ -46,6 +66,30 @@ h2, h2 a, h2 a:hover {
   text-decoration: none;
   color: #000 !important;
 }
+.toolbar {
+  @include font-size(1.2);
+  @include sans-serif;
+  margin-bottom: 6rem;
+  text-align: center;
+  text-transform: uppercase;
+  a {
+    @include opacity(0.3);
+    @include transition(opacity 0.5s);
+    color: #000;
+    margin-right: 15px;
+    &:last-of-type {
+      margin-right: 0;
+    }
+  }
+}
+.header:hover .toolbar {
+  a {
+    @include opacity(1);
+    &:hover {
+      color: red;
+    }
+  }
+}
 .date {
   @include font-size(1.3);
   @include serif;
@@ -54,8 +98,21 @@ h2, h2 a, h2 a:hover {
   text-transform: uppercase;
   color: #777;
 }
-.post {
+.container {
   margin-bottom: 6rem;
+}
+ul.posts {
+  li.post {
+    margin-bottom: 8rem;
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+}
+ul.post-summary {
+  line-height: 175%;
+}
+.content {
   p {
     margin-bottom: 2rem;
   }
@@ -86,6 +143,7 @@ h2, h2 a, h2 a:hover {
 }
 .footer {
   @include serif;
+  @include font-size(1.6);
   text-align: center;
   color: #555;
   margin-bottom: 4rem;
