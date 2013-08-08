@@ -4,6 +4,7 @@
   
     <title>Cut-copy-paste in Vim // subrational</title>
   
+  <meta http-equiv="Content-Language" content="en" />
   <link href='http://fonts.googleapis.com/css?family=PT+Serif|Bitter|Oxygen+Mono|Oswald:300' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" type="text/css" href="/assets/styles/reset.css" />
   <link rel="stylesheet" type="text/css" href="/assets/styles/style.css" />
@@ -13,10 +14,19 @@
   <script src="/assets/scripts/ga.js"></script>
 </head>
 <body>
+  <div class="header">
   <h1><a href="/">SUBRATIONAL</a></h1>
-<h2><a href="/2013/08/06/cut-copy-paste-in-vim/">Cut-copy-paste in Vim</a></h2>
+  <nav class="toolbar">
+    <a href="/">Home</a>
+    <a href="/posts">Posts</a>
+    <a href="/about">About</a>
+    <a href="/feed.xml">RSS</a>
+  </nav>
+</div>
+<div class="container">
+  <h2><a href="/2013/08/06/cut-copy-paste-in-vim/">Cut-copy-paste in Vim</a></h2>
 <h3 class="date">2013 Aug 06</h3>
-<div class="post">
+<div class="content">
   <p>I love Vim, but I also have <code>Ctrl+X</code>, <code>Ctrl+C</code>, <code>Ctrl+V</code> permanently burned into my brain. Can we consolidate these two worlds? Yes! Mostly.</p>
 
 <p><code>mswin.vim</code> is distributed with Vim and offers some hints, but it brings a bit of extra baggage, and still doesn&#8217;t behave as I&#8217;d expect. Instead, I am doing the following:</p>
@@ -40,7 +50,8 @@ vnor &lt;C-V&gt; :&lt;C-U&gt;set paste&lt;CR&gt;gvc&lt;C-R&gt;+&lt;C-O&gt;:set n
 <p>Cut and copy are just using the <code>+</code> clipboard register, and paste is just doing <code>&lt;C-R&gt;+</code> (see <code>:h i_ctrl-r</code>) in between <code>paste</code>/<code>nopaste</code> to preserve the text without having Vim reformat it. Ugly, but it works.</p>
 </div>
 
-<div class="footer">&lambda;</div>
+</div>
+<div class="footer">&otimes;</div>
 
 </body>
 </html>

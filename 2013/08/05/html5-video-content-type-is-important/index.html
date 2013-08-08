@@ -4,6 +4,7 @@
   
     <title>HTML5 video: Content-Type is important // subrational</title>
   
+  <meta http-equiv="Content-Language" content="en" />
   <link href='http://fonts.googleapis.com/css?family=PT+Serif|Bitter|Oxygen+Mono|Oswald:300' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" type="text/css" href="/assets/styles/reset.css" />
   <link rel="stylesheet" type="text/css" href="/assets/styles/style.css" />
@@ -13,10 +14,19 @@
   <script src="/assets/scripts/ga.js"></script>
 </head>
 <body>
+  <div class="header">
   <h1><a href="/">SUBRATIONAL</a></h1>
-<h2><a href="/2013/08/05/html5-video-content-type-is-important/">HTML5 video: Content-Type is important</a></h2>
+  <nav class="toolbar">
+    <a href="/">Home</a>
+    <a href="/posts">Posts</a>
+    <a href="/about">About</a>
+    <a href="/feed.xml">RSS</a>
+  </nav>
+</div>
+<div class="container">
+  <h2><a href="/2013/08/05/html5-video-content-type-is-important/">HTML5 video: Content-Type is important</a></h2>
 <h3 class="date">2013 Aug 05</h3>
-<div class="post">
+<div class="content">
   <p>If you&#8217;re trying to play HTML5 video with the <code>&lt;video/&gt;</code> tag, ensure the correct <code>Content-Type</code> header is being sent for your source media.</p>
 
 <p>Some browsers, such as Chrome, seem willing to play a video regardless of its <code>Content-Type</code> (perhaps through sniffing or file extensions), but others, such as IE, require a valid and supported value.</p>
@@ -49,7 +59,8 @@ Server: AmazonS3
 <p>If you need to support a wider range of MIME types, consider using the <a href='https://github.com/halostatue/mime-types'>mime-types</a> gem and <code>MIME::Types.type_for</code>.</p>
 </div>
 
-<div class="footer">&lambda;</div>
+</div>
+<div class="footer">&otimes;</div>
 
 </body>
 </html>

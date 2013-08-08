@@ -4,6 +4,7 @@
   
     <title>subrational</title>
   
+  <meta http-equiv="Content-Language" content="en" />
   <link href='http://fonts.googleapis.com/css?family=PT+Serif|Bitter|Oxygen+Mono|Oswald:300' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" type="text/css" href="/assets/styles/reset.css" />
   <link rel="stylesheet" type="text/css" href="/assets/styles/style.css" />
@@ -13,13 +14,22 @@
   <script src="/assets/scripts/ga.js"></script>
 </head>
 <body>
+  <div class="header">
   <h1><a href="/">SUBRATIONAL</a></h1>
-<ul>
+  <nav class="toolbar">
+    <a href="/">Home</a>
+    <a href="/posts">Posts</a>
+    <a href="/about">About</a>
+    <a href="/feed.xml">RSS</a>
+  </nav>
+</div>
+<div class="container">
+  <ul class="posts">
   
-    <li>
+    <li class="post">
       <h2><a href="/2013/08/06/cut-copy-paste-in-vim/">Cut-copy-paste in Vim</a></h2>
       <h3 class="date">2013 Aug 06</h3>
-      <div class="post">
+      <div class="content">
         <p>I love Vim, but I also have <code>Ctrl+X</code>, <code>Ctrl+C</code>, <code>Ctrl+V</code> permanently burned into my brain. Can we consolidate these two worlds? Yes! Mostly.</p>
 
 <p><code>mswin.vim</code> is distributed with Vim and offers some hints, but it brings a bit of extra baggage, and still doesn&#8217;t behave as I&#8217;d expect. Instead, I am doing the following:</p>
@@ -44,10 +54,10 @@ vnor &lt;C-V&gt; :&lt;C-U&gt;set paste&lt;CR&gt;gvc&lt;C-R&gt;+&lt;C-O&gt;:set n
       </div>
     </li>
   
-    <li>
+    <li class="post">
       <h2><a href="/2013/08/05/html5-video-content-type-is-important/">HTML5 video: Content-Type is important</a></h2>
       <h3 class="date">2013 Aug 05</h3>
-      <div class="post">
+      <div class="content">
         <p>If you&#8217;re trying to play HTML5 video with the <code>&lt;video/&gt;</code> tag, ensure the correct <code>Content-Type</code> header is being sent for your source media.</p>
 
 <p>Some browsers, such as Chrome, seem willing to play a video regardless of its <code>Content-Type</code> (perhaps through sniffing or file extensions), but others, such as IE, require a valid and supported value.</p>
@@ -83,7 +93,8 @@ Server: AmazonS3
   
 </ul>
 
-<div class="footer">&lambda;</div>
+</div>
+<div class="footer">&otimes;</div>
 
 </body>
 </html>
