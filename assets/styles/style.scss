@@ -1,33 +1,4 @@
-@mixin transition($props...) {
-  @include prop(transition, $props, -webkit -moz -ms -o);
-}
-@mixin prop($property, $value, $prefixes: -webkit -khtml -moz -ms -o) {
-  @each $prefix in $prefixes {
-    #{$prefix}-#{$property}: $value;
-  }
-
-  #{$property}: $value;
-}
-@mixin opacity($opacity) {
-  -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=$opacity)";
-  filter: alpha(opacity=$opacity);
-  -moz-opacity: $opacity;
-  -khtml-opacity: $opacity;
-  opacity: $opacity;
-}
-@mixin font-size($rem) {
-  font-size: $rem * 10 + px;
-  font-size: $rem + rem;
-}
-@mixin serif {
-  font-family: 'PT Serif', serif;
-}
-@mixin sans-serif {
-  font-family: Verdana, Helvetica, sans-serif;
-}
-@mixin monospace {
-  font-family: 'Oxygen Mono', monospace;
-}
+@import "mixins";
 html {
   font-size: 62.5%;
 }
@@ -90,16 +61,8 @@ h2, h2 a, h2 a:hover {
     }
   }
 }
-.date {
-  @include font-size(1.3);
-  @include serif;
-  margin-top: 1rem;
-  margin-bottom: 3rem;
-  text-transform: uppercase;
-  color: #777;
-}
 .container {
-  margin-bottom: 6rem;
+  margin-bottom: 10rem;
 }
 ul.posts {
   li.post {
@@ -107,10 +70,23 @@ ul.posts {
     &:last-of-type {
       margin-bottom: 0;
     }
+    .date {
+      @include font-size(1.3);
+      @include serif;
+      margin-top: 1rem;
+      margin-bottom: 3rem;
+      text-transform: uppercase;
+      color: #777;
+    }
   }
 }
 ul.post-summary {
   line-height: 175%;
+  .date {
+    @include font-size(1.4);
+    color: #777;
+    margin-right: 10px;
+  }
 }
 .content {
   p {
@@ -147,4 +123,15 @@ ul.post-summary {
   text-align: center;
   color: #555;
   margin-bottom: 4rem;
+}
+ul.services {
+  li {
+    line-height: 180%;
+  }
+  .name {
+    float: left;
+    width: 300px;
+    text-align: right;
+    margin-right: 10px;
+  }
 }

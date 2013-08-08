@@ -1,0 +1,30 @@
+@mixin transition($props...) {
+  @include prop(transition, $props, -webkit -moz -ms -o);
+}
+@mixin prop($property, $value, $prefixes: -webkit -khtml -moz -ms -o) {
+  @each $prefix in $prefixes {
+    #{$prefix}-#{$property}: $value;
+  }
+
+  #{$property}: $value;
+}
+@mixin opacity($opacity) {
+  -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=$opacity)";
+  filter: alpha(opacity=$opacity);
+  -moz-opacity: $opacity;
+  -khtml-opacity: $opacity;
+  opacity: $opacity;
+}
+@mixin font-size($rem) {
+  font-size: $rem * 10 + px;
+  font-size: $rem + rem;
+}
+@mixin serif {
+  font-family: 'PT Serif', serif;
+}
+@mixin sans-serif {
+  font-family: Verdana, Helvetica, sans-serif;
+}
+@mixin monospace {
+  font-family: 'Oxygen Mono', monospace;
+}
