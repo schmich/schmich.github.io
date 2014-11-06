@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   
     <title>subrational</title>
@@ -31,27 +31,30 @@
       <h2><a href="/2013/08/06/cut-copy-paste-in-vim/">Cut-copy-paste in Vim</a></h2>
       <h3 class="date">2013 Aug 06</h3>
       <div class="content">
-        <p>I love Vim, but I also have <code>Ctrl+X</code>, <code>Ctrl+C</code>, <code>Ctrl+V</code> permanently burned into my brain. Can we consolidate these two worlds? Yes! Mostly.</p>
+        <p>I love Vim, but I also have <code>Ctrl+X</code>, <code>Ctrl+C</code>, <code>Ctrl+V</code> permanently burned into my brain.
+Can we consolidate these two worlds? Yes! Mostly.</p>
 
-<p><code>mswin.vim</code> is distributed with Vim and offers some hints, but it brings a bit of extra baggage, and still doesn&#8217;t behave as I&#8217;d expect. Instead, I am doing the following:</p>
-<div class='highlight'><pre><code class='text'>vnor &lt;C-X&gt; &quot;+x
+<p><code>mswin.vim</code> is distributed with Vim and offers some hints, but it brings a bit of extra baggage,
+and still doesn’t behave as I’d expect. Instead, I am doing the following:</p>
+
+<div class="highlight"><pre><code class="text">vnor &lt;C-X&gt; &quot;+x
 vnor &lt;C-C&gt; &quot;+y
 inor &lt;C-V&gt; &lt;C-O&gt;:set paste&lt;CR&gt;&lt;C-R&gt;+&lt;C-O&gt;:set nopaste&lt;CR&gt;
-vnor &lt;C-V&gt; :&lt;C-U&gt;set paste&lt;CR&gt;gvc&lt;C-R&gt;+&lt;C-O&gt;:set nopaste&lt;CR&gt;&lt;ESC&gt;
-</code></pre></div>
+vnor &lt;C-V&gt; :&lt;C-U&gt;set paste&lt;CR&gt;gvc&lt;C-R&gt;+&lt;C-O&gt;:set nopaste&lt;CR&gt;&lt;ESC&gt;</code></pre></div>
+
 <ul>
-<li>You can cut and copy in visual mode.</li>
-
-<li>You can paste in insert mode or visual mode (replacing your selection).</li>
-
-<li>Pasting does not result in poor formatting.</li>
-
-<li><code>Ctrl+V</code> still does visual block selection.</li>
+  <li>You can cut and copy in visual mode.</li>
+  <li>You can paste in insert mode or visual mode (replacing your selection).</li>
+  <li>Pasting does not result in poor formatting.</li>
+  <li><code>Ctrl+V</code> still does visual block selection.</li>
 </ul>
 
 <p>For me, at least, this scheme offers the best tradeoffs with the least surprise.</p>
 
-<p>Cut and copy are just using the <code>+</code> clipboard register, and paste is just doing <code>&lt;C-R&gt;+</code> (see <code>:h i_ctrl-r</code>) in between <code>paste</code>/<code>nopaste</code> to preserve the text without having Vim reformat it. Ugly, but it works.</p>
+<p>Cut and copy are just using the <code>+</code> clipboard register, and paste is just doing <code>&lt;C-R&gt;+</code> 
+(see <code>:h i_ctrl-r</code>) in between <code>paste</code>/<code>nopaste</code> to preserve the text without having Vim
+reformat it. Ugly, but it works.</p>
+
       </div>
     </li>
   
@@ -59,18 +62,25 @@ vnor &lt;C-V&gt; :&lt;C-U&gt;set paste&lt;CR&gt;gvc&lt;C-R&gt;+&lt;C-O&gt;:set n
       <h2><a href="/2013/08/05/html5-video-content-type-is-important/">HTML5 video: Content-Type is important</a></h2>
       <h3 class="date">2013 Aug 05</h3>
       <div class="content">
-        <p>If you&#8217;re trying to play HTML5 video with the <code>&lt;video/&gt;</code> tag, ensure the correct <code>Content-Type</code> header is being sent for your source media.</p>
+        <p>If you’re trying to play HTML5 video with the <code>&lt;video/&gt;</code> tag, ensure the correct <code>Content-Type</code>
+header is being sent for your source media.</p>
 
-<p>Some browsers, such as Chrome, seem willing to play a video regardless of its <code>Content-Type</code> (perhaps through sniffing or file extensions), but others, such as IE, require a valid and supported value.</p>
+<p>Some browsers, such as Chrome, seem willing to play a video regardless of its <code>Content-Type</code>
+(perhaps through sniffing or file extensions), but others, such as IE, require a valid and supported value.</p>
 
 <p>I ran into this while trying to play videos hosted on S3 with IE10:</p>
-<div class='highlight'><pre><code class='html'><span class='nt'>&lt;video</span> <span class='na'>controls</span> <span class='na'>autoplay</span><span class='nt'>&gt;</span>
-  <span class='nt'>&lt;source</span> <span class='na'>src=</span><span class='s'>&quot;http://s3-us-west-1.amazonaws.com/foo/bar.mp4&quot;</span> <span class='na'>type=</span><span class='s'>&quot;video/mp4&quot;</span> <span class='nt'>/&gt;</span>
-<span class='nt'>&lt;/video&gt;</span>
-</code></pre></div>
-<p>Even with the <code>type</code> attribute set to <code>video/mp4</code>, IE refused to play the video, saying only &#8220;Invalid Source&#8221; or &#8220;Error: Unsupported video type or invalid file path&#8221;. Some searching yielded <a href='http://blogs.msdn.com/b/thebeebs/archive/2011/07/20/html5-video-not-working-in-ie9-some-tips-to-debug.aspx'>this blog post</a> detailing common problems.</p>
 
-<p>The error coming from the video element in IE was <code>MEDIA_ERR_SRC_NOT_SUPPORTED</code>. In my case, the source wasn&#8217;t supported because the MIME type being sent was not supported:</p>
+<div class="highlight"><pre><code class="html"><span class="nt">&lt;video</span> <span class="na">controls</span> <span class="na">autoplay</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;source</span> <span class="na">src=</span><span class="s">&quot;http://s3-us-west-1.amazonaws.com/foo/bar.mp4&quot;</span> <span class="na">type=</span><span class="s">&quot;video/mp4&quot;</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;/video&gt;</span></code></pre></div>
+
+<p>Even with the <code>type</code> attribute set to <code>video/mp4</code>, IE refused to play the video, saying only “Invalid Source” or
+“Error: Unsupported video type or invalid file path”. Some searching yielded
+<a href="http://blogs.msdn.com/b/thebeebs/archive/2011/07/20/html5-video-not-working-in-ie9-some-tips-to-debug.aspx">this blog post</a>
+detailing common problems.</p>
+
+<p>The error coming from the video element in IE was <code>MEDIA_ERR_SRC_NOT_SUPPORTED</code>. In my case, the source wasn’t supported
+because the MIME type being sent was not supported:</p>
 
 <pre><code>$ curl -I http://s3-us-west-1.amazonaws.com/foo/bar.mp4
 HTTP/1.1 200 OK
@@ -79,16 +89,25 @@ Last-Modified: Fri, 14 Jun 2013 03:24:40 GMT
 Content-Type: application/octet-stream
 Content-Length: 9227881
 Server: AmazonS3
-...</code></pre>
+...
+</code></pre>
 
-<p>Apparently after uploading the video, S3 automatically set its <code>Content-Type</code> to <code>application/octet-stream</code>, which IE does not support.</p>
+<p>Apparently after uploading the video, S3 automatically set its <code>Content-Type</code> to <code>application/octet-stream</code>,
+which IE does not support.</p>
 
-<p>This is normally not a problem when serving videos from a web server such as Apache, since the server is usually configured to send the <code>Content-Type</code> header based on the file extension, but many cloud storage services like S3 require you to specify your own metadata.</p>
+<p>This is normally not a problem when serving videos from a web server such as Apache, since the server is usually
+configured to send the <code>Content-Type</code> header based on the file extension, but many cloud storage services like S3
+require you to specify your own metadata.</p>
 
-<p>We were uploading videos using the <a href='http://aws.amazon.com/sdkforruby/'>AWS Ruby SDK</a>, so the fix was to simply specify <code>:content-type</code> when uploading the file via <a href='http://docs.aws.amazon.com/AWSRubySDK/latest/AWS/S3/S3Object.html#write-instance_method'>S3Object#write</a>:</p>
-<div class='highlight'><pre><code class='ruby'><span class='n'>obj</span><span class='o'>.</span><span class='n'>write</span><span class='p'>(</span><span class='ss'>:content_type</span> <span class='o'>=&gt;</span> <span class='s1'>&#39;video/mp4&#39;</span><span class='p'>,</span> <span class='o'>.</span><span class='n'>.</span><span class='o'>.</span><span class='p'>)</span>
-</code></pre></div>
-<p>If you need to support a wider range of MIME types, consider using the <a href='https://github.com/halostatue/mime-types'>mime-types</a> gem and <code>MIME::Types.type_for</code>.</p>
+<p>We were uploading videos using the <a href="http://aws.amazon.com/sdkforruby/">AWS Ruby SDK</a>, so the fix was to simply specify
+<code>:content-type</code> when uploading the file via
+<a href="http://docs.aws.amazon.com/AWSRubySDK/latest/AWS/S3/S3Object.html#write-instance_method">S3Object#write</a>:</p>
+
+<div class="highlight"><pre><code class="ruby"><span class="n">obj</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="ss">:content_type</span> <span class="o">=&gt;</span> <span class="s1">&#39;video/mp4&#39;</span><span class="p">,</span> <span class="o">.</span><span class="n">.</span><span class="o">.</span><span class="p">)</span></code></pre></div>
+
+<p>If you need to support a wider range of MIME types, consider using the <a href="https://github.com/halostatue/mime-types">mime-types</a> gem and <code>MIME::Types.type_for</code>.</p>
+
+
       </div>
     </li>
   

@@ -8,27 +8,30 @@
     
       <item>
         <title>Cut-copy-paste in Vim</title>
-        <description>&lt;p&gt;I love Vim, but I also have &lt;code&gt;Ctrl+X&lt;/code&gt;, &lt;code&gt;Ctrl+C&lt;/code&gt;, &lt;code&gt;Ctrl+V&lt;/code&gt; permanently burned into my brain. Can we consolidate these two worlds? Yes! Mostly.&lt;/p&gt;
+        <description>&lt;p&gt;I love Vim, but I also have &lt;code&gt;Ctrl+X&lt;/code&gt;, &lt;code&gt;Ctrl+C&lt;/code&gt;, &lt;code&gt;Ctrl+V&lt;/code&gt; permanently burned into my brain.
+Can we consolidate these two worlds? Yes! Mostly.&lt;/p&gt;
 
-&lt;p&gt;&lt;code&gt;mswin.vim&lt;/code&gt; is distributed with Vim and offers some hints, but it brings a bit of extra baggage, and still doesn&amp;#8217;t behave as I&amp;#8217;d expect. Instead, I am doing the following:&lt;/p&gt;
-&lt;div class=&#39;highlight&#39;&gt;&lt;pre&gt;&lt;code class=&#39;text&#39;&gt;vnor &amp;lt;C-X&amp;gt; &amp;quot;+x
+&lt;p&gt;&lt;code&gt;mswin.vim&lt;/code&gt; is distributed with Vim and offers some hints, but it brings a bit of extra baggage,
+and still doesn’t behave as I’d expect. Instead, I am doing the following:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text&quot;&gt;vnor &amp;lt;C-X&amp;gt; &amp;quot;+x
 vnor &amp;lt;C-C&amp;gt; &amp;quot;+y
 inor &amp;lt;C-V&amp;gt; &amp;lt;C-O&amp;gt;:set paste&amp;lt;CR&amp;gt;&amp;lt;C-R&amp;gt;+&amp;lt;C-O&amp;gt;:set nopaste&amp;lt;CR&amp;gt;
-vnor &amp;lt;C-V&amp;gt; :&amp;lt;C-U&amp;gt;set paste&amp;lt;CR&amp;gt;gvc&amp;lt;C-R&amp;gt;+&amp;lt;C-O&amp;gt;:set nopaste&amp;lt;CR&amp;gt;&amp;lt;ESC&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+vnor &amp;lt;C-V&amp;gt; :&amp;lt;C-U&amp;gt;set paste&amp;lt;CR&amp;gt;gvc&amp;lt;C-R&amp;gt;+&amp;lt;C-O&amp;gt;:set nopaste&amp;lt;CR&amp;gt;&amp;lt;ESC&amp;gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
 &lt;ul&gt;
-&lt;li&gt;You can cut and copy in visual mode.&lt;/li&gt;
-
-&lt;li&gt;You can paste in insert mode or visual mode (replacing your selection).&lt;/li&gt;
-
-&lt;li&gt;Pasting does not result in poor formatting.&lt;/li&gt;
-
-&lt;li&gt;&lt;code&gt;Ctrl+V&lt;/code&gt; still does visual block selection.&lt;/li&gt;
+  &lt;li&gt;You can cut and copy in visual mode.&lt;/li&gt;
+  &lt;li&gt;You can paste in insert mode or visual mode (replacing your selection).&lt;/li&gt;
+  &lt;li&gt;Pasting does not result in poor formatting.&lt;/li&gt;
+  &lt;li&gt;&lt;code&gt;Ctrl+V&lt;/code&gt; still does visual block selection.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;For me, at least, this scheme offers the best tradeoffs with the least surprise.&lt;/p&gt;
 
-&lt;p&gt;Cut and copy are just using the &lt;code&gt;+&lt;/code&gt; clipboard register, and paste is just doing &lt;code&gt;&amp;lt;C-R&amp;gt;+&lt;/code&gt; (see &lt;code&gt;:h i_ctrl-r&lt;/code&gt;) in between &lt;code&gt;paste&lt;/code&gt;/&lt;code&gt;nopaste&lt;/code&gt; to preserve the text without having Vim reformat it. Ugly, but it works.&lt;/p&gt;</description>
+&lt;p&gt;Cut and copy are just using the &lt;code&gt;+&lt;/code&gt; clipboard register, and paste is just doing &lt;code&gt;&amp;lt;C-R&amp;gt;+&lt;/code&gt; 
+(see &lt;code&gt;:h i_ctrl-r&lt;/code&gt;) in between &lt;code&gt;paste&lt;/code&gt;/&lt;code&gt;nopaste&lt;/code&gt; to preserve the text without having Vim
+reformat it. Ugly, but it works.&lt;/p&gt;
+</description>
         <pubDate>Tue, 06 Aug 2013 00:00:00 -0500</pubDate>
         <link>http://subrational.com/2013/08/06/cut-copy-paste-in-vim/</link>
         <guid isPermaLink="true">http://subrational.com/2013/08/06/cut-copy-paste-in-vim/</guid>
@@ -36,18 +39,25 @@ vnor &amp;lt;C-V&amp;gt; :&amp;lt;C-U&amp;gt;set paste&amp;lt;CR&amp;gt;gvc&amp;
     
       <item>
         <title>HTML5 video: Content-Type is important</title>
-        <description>&lt;p&gt;If you&amp;#8217;re trying to play HTML5 video with the &lt;code&gt;&amp;lt;video/&amp;gt;&lt;/code&gt; tag, ensure the correct &lt;code&gt;Content-Type&lt;/code&gt; header is being sent for your source media.&lt;/p&gt;
+        <description>&lt;p&gt;If you’re trying to play HTML5 video with the &lt;code&gt;&amp;lt;video/&amp;gt;&lt;/code&gt; tag, ensure the correct &lt;code&gt;Content-Type&lt;/code&gt;
+header is being sent for your source media.&lt;/p&gt;
 
-&lt;p&gt;Some browsers, such as Chrome, seem willing to play a video regardless of its &lt;code&gt;Content-Type&lt;/code&gt; (perhaps through sniffing or file extensions), but others, such as IE, require a valid and supported value.&lt;/p&gt;
+&lt;p&gt;Some browsers, such as Chrome, seem willing to play a video regardless of its &lt;code&gt;Content-Type&lt;/code&gt;
+(perhaps through sniffing or file extensions), but others, such as IE, require a valid and supported value.&lt;/p&gt;
 
 &lt;p&gt;I ran into this while trying to play videos hosted on S3 with IE10:&lt;/p&gt;
-&lt;div class=&#39;highlight&#39;&gt;&lt;pre&gt;&lt;code class=&#39;html&#39;&gt;&lt;span class=&#39;nt&#39;&gt;&amp;lt;video&lt;/span&gt; &lt;span class=&#39;na&#39;&gt;controls&lt;/span&gt; &lt;span class=&#39;na&#39;&gt;autoplay&lt;/span&gt;&lt;span class=&#39;nt&#39;&gt;&amp;gt;&lt;/span&gt;
-  &lt;span class=&#39;nt&#39;&gt;&amp;lt;source&lt;/span&gt; &lt;span class=&#39;na&#39;&gt;src=&lt;/span&gt;&lt;span class=&#39;s&#39;&gt;&amp;quot;http://s3-us-west-1.amazonaws.com/foo/bar.mp4&amp;quot;&lt;/span&gt; &lt;span class=&#39;na&#39;&gt;type=&lt;/span&gt;&lt;span class=&#39;s&#39;&gt;&amp;quot;video/mp4&amp;quot;&lt;/span&gt; &lt;span class=&#39;nt&#39;&gt;/&amp;gt;&lt;/span&gt;
-&lt;span class=&#39;nt&#39;&gt;&amp;lt;/video&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Even with the &lt;code&gt;type&lt;/code&gt; attribute set to &lt;code&gt;video/mp4&lt;/code&gt;, IE refused to play the video, saying only &amp;#8220;Invalid Source&amp;#8221; or &amp;#8220;Error: Unsupported video type or invalid file path&amp;#8221;. Some searching yielded &lt;a href=&#39;http://blogs.msdn.com/b/thebeebs/archive/2011/07/20/html5-video-not-working-in-ie9-some-tips-to-debug.aspx&#39;&gt;this blog post&lt;/a&gt; detailing common problems.&lt;/p&gt;
 
-&lt;p&gt;The error coming from the video element in IE was &lt;code&gt;MEDIA_ERR_SRC_NOT_SUPPORTED&lt;/code&gt;. In my case, the source wasn&amp;#8217;t supported because the MIME type being sent was not supported:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;html&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;video&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;controls&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;autoplay&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;source&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;http://s3-us-west-1.amazonaws.com/foo/bar.mp4&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;video/mp4&amp;quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/video&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Even with the &lt;code&gt;type&lt;/code&gt; attribute set to &lt;code&gt;video/mp4&lt;/code&gt;, IE refused to play the video, saying only “Invalid Source” or
+“Error: Unsupported video type or invalid file path”. Some searching yielded
+&lt;a href=&quot;http://blogs.msdn.com/b/thebeebs/archive/2011/07/20/html5-video-not-working-in-ie9-some-tips-to-debug.aspx&quot;&gt;this blog post&lt;/a&gt;
+detailing common problems.&lt;/p&gt;
+
+&lt;p&gt;The error coming from the video element in IE was &lt;code&gt;MEDIA_ERR_SRC_NOT_SUPPORTED&lt;/code&gt;. In my case, the source wasn’t supported
+because the MIME type being sent was not supported:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;$ curl -I http://s3-us-west-1.amazonaws.com/foo/bar.mp4
 HTTP/1.1 200 OK
@@ -56,16 +66,25 @@ Last-Modified: Fri, 14 Jun 2013 03:24:40 GMT
 Content-Type: application/octet-stream
 Content-Length: 9227881
 Server: AmazonS3
-...&lt;/code&gt;&lt;/pre&gt;
+...
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;Apparently after uploading the video, S3 automatically set its &lt;code&gt;Content-Type&lt;/code&gt; to &lt;code&gt;application/octet-stream&lt;/code&gt;, which IE does not support.&lt;/p&gt;
+&lt;p&gt;Apparently after uploading the video, S3 automatically set its &lt;code&gt;Content-Type&lt;/code&gt; to &lt;code&gt;application/octet-stream&lt;/code&gt;,
+which IE does not support.&lt;/p&gt;
 
-&lt;p&gt;This is normally not a problem when serving videos from a web server such as Apache, since the server is usually configured to send the &lt;code&gt;Content-Type&lt;/code&gt; header based on the file extension, but many cloud storage services like S3 require you to specify your own metadata.&lt;/p&gt;
+&lt;p&gt;This is normally not a problem when serving videos from a web server such as Apache, since the server is usually
+configured to send the &lt;code&gt;Content-Type&lt;/code&gt; header based on the file extension, but many cloud storage services like S3
+require you to specify your own metadata.&lt;/p&gt;
 
-&lt;p&gt;We were uploading videos using the &lt;a href=&#39;http://aws.amazon.com/sdkforruby/&#39;&gt;AWS Ruby SDK&lt;/a&gt;, so the fix was to simply specify &lt;code&gt;:content-type&lt;/code&gt; when uploading the file via &lt;a href=&#39;http://docs.aws.amazon.com/AWSRubySDK/latest/AWS/S3/S3Object.html#write-instance_method&#39;&gt;S3Object#write&lt;/a&gt;:&lt;/p&gt;
-&lt;div class=&#39;highlight&#39;&gt;&lt;pre&gt;&lt;code class=&#39;ruby&#39;&gt;&lt;span class=&#39;n&#39;&gt;obj&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;.&lt;/span&gt;&lt;span class=&#39;n&#39;&gt;write&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;(&lt;/span&gt;&lt;span class=&#39;ss&#39;&gt;:content_type&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#39;s1&#39;&gt;&amp;#39;video/mp4&amp;#39;&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;,&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;.&lt;/span&gt;&lt;span class=&#39;n&#39;&gt;.&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;.&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;If you need to support a wider range of MIME types, consider using the &lt;a href=&#39;https://github.com/halostatue/mime-types&#39;&gt;mime-types&lt;/a&gt; gem and &lt;code&gt;MIME::Types.type_for&lt;/code&gt;.&lt;/p&gt;</description>
+&lt;p&gt;We were uploading videos using the &lt;a href=&quot;http://aws.amazon.com/sdkforruby/&quot;&gt;AWS Ruby SDK&lt;/a&gt;, so the fix was to simply specify
+&lt;code&gt;:content-type&lt;/code&gt; when uploading the file via
+&lt;a href=&quot;http://docs.aws.amazon.com/AWSRubySDK/latest/AWS/S3/S3Object.html#write-instance_method&quot;&gt;S3Object#write&lt;/a&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;obj&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;write&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:content_type&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;video/mp4&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;If you need to support a wider range of MIME types, consider using the &lt;a href=&quot;https://github.com/halostatue/mime-types&quot;&gt;mime-types&lt;/a&gt; gem and &lt;code&gt;MIME::Types.type_for&lt;/code&gt;.&lt;/p&gt;
+
+</description>
         <pubDate>Mon, 05 Aug 2013 00:00:00 -0500</pubDate>
         <link>http://subrational.com/2013/08/05/html5-video-content-type-is-important/</link>
         <guid isPermaLink="true">http://subrational.com/2013/08/05/html5-video-content-type-is-important/</guid>
