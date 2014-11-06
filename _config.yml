@@ -2,7 +2,7 @@ name: subrational
 description:
 url: http://subrational.com
 exclude:  [Gemfile, Gemfile.lock, Procfile, Rakefile, README.md, vendor, gems, publish]
-pygments: true
+highlighter: pygments
 permalink: pretty
 sass:
   syntax: scss
