@@ -1,0 +1,507 @@
+<!doctype html>
+<html>
+	<head>
+	
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, minimal-ui">
+	
+	<title>Chris Schmich</title>
+	
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/octicons/2.0.2/octicons.min.css">
+	
+	<style type="text/css">
+	@import url(
+	https://fonts.googleapis.com/css?family=Lato:400,700
+);
+body {
+	background: #fff;
+	font-family: Lato, sans-serif;
+	margin: 0 0 80px;
+}
+a, #content h3 {
+	color: #216EC6;
+}
+a:focus,
+a:hover {
+	color: #084ACE;
+	text-decoration: none;
+}
+p {
+	line-height: 1.5;
+	margin: 0;
+}
+p + p {
+	margin-top: 10px;
+}
+p em {
+  margin-right: 7px;
+}
+h1,
+h2,
+h3,
+h4 {
+	margin-top: 0
+}
+section {
+	margin-top: 30px;
+}
+li {
+	line-height: 1.8;
+	list-style: none;
+}
+li:before {
+	content: "\f052";
+	float: left;
+	font: 13px Octicons;
+	margin-top: 6px;
+	margin-left: -20px;
+	opacity: .1;
+	position: absolute;
+}
+blockquote {
+	border-left: 5px solid #e7e9ec;
+	font-size: 14px;
+}
+em {
+	color: #95a5a6;
+	font-weight: normal;
+	font-style: normal;
+}
+h4 span:first-child {
+	color: #000;
+	font-weight: bold;
+}
+.container {
+	max-width: 750px;
+	padding: 0 30px;
+}
+.col-sm-6 {
+	margin-bottom: 10px;
+}
+.col-sm-12 h4 {
+	margin-top: 12px; 
+}
+.col-sm-12 + .col-sm-12 {
+	margin-top: 30px;
+}
+#header {
+	background: #f4f6f6;
+	padding: 50px 0;
+	margin-bottom: 30px;
+}
+#header h2 {
+	color: #95a5a6;
+	font-size: 24px;
+}
+#content h3 {
+	font-size: 26px;
+	margin-top: -4px;
+}
+#content aside {
+	text-align: right;
+	padding-right: 30px;
+}
+#profiles .network {
+	text-transform: capitalize;
+}
+#work .position,
+#volunteer .position {
+	font-weight: bold;
+	margin-bottom: 8px;
+}
+#education .area {
+	font-weight: bold;
+}
+#education .area:before {
+	content: "\f0d7";
+	font: 16px Octicons;
+	margin-right: 6px;
+}
+#education .studyType {
+	margin-left: 25px;
+}
+#awards .summary,
+#publications .summary {
+	margin-top: 8px;
+}
+#publications .website a:before {
+	content: attr(href);
+}
+
+@media (min-width: 480px) {
+	.strike-through {
+		border-top: 1px solid #f4f6f6;
+		height: 20px;
+		margin-top: 12px;
+		margin-bottom: -2px;
+		position: relative;
+	}
+	.strike-through span,
+	.strike-through a {
+		background: #fff;
+		position: absolute;
+	}
+	.strike-through span:first-child {
+		padding-right: 20px;
+		margin-top: -12px;
+	}
+	.strike-through span + span {
+		font-size: 14px;
+		margin-top: -10px;
+		padding-left: 20px;
+		right: 0;
+	}
+}
+@media (max-width: 768px) {
+	.col-sm-6:last-child {
+		margin-bottom: 0px;
+	}
+	#content aside {
+		margin-bottom: 20px;
+		padding-right: 0;
+		text-align: left;
+	}
+	#publications .website a:before {
+		content: "View publication";
+	}
+}
+@media (max-width: 480px) {
+	h1 {
+		font-size: 26px;
+	}
+	.date {
+		font-size: 14px;
+		margin-bottom: 5px;
+	}
+	.strike-through span:first-child {
+		margin-bottom: 7px;
+	}
+	.strike-through span {
+		display: block;
+	}	
+	#header {
+		margin-bottom: 10px;
+		padding: 40px 0;
+	}
+	#actions {
+		display: none;
+	}
+}
+
+	</style>
+	
+	</head>
+	<body>
+	
+	<header id="header">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-9 col-sm-push-3">
+					<h1>
+						Chris Schmich
+					</h1>
+					<h2>
+						Technical Leader &amp; Full-Stack Developer
+					</h2>
+				</div>
+			</div>
+		</div>
+	</header>
+	<div id="content" class="container">
+
+	<section id="contact" class="row">
+		<aside class="col-sm-3">
+			<h3>Contact</h3>
+		</aside>
+		<div class="col-sm-9">
+			<div class="row">
+			<div class="col-sm-6">
+				<strong>Email</strong>
+        <div class="email"><a href="mailto:chris.schmich@agilityspeaks.com">chris.schmich@agilityspeaks.com</a></div>
+			</div>
+			<div class="col-sm-6">
+				<strong>Phone</strong>
+				<div class="phone">425-985-9464</div>
+			</div>
+			</div>
+		</div>
+	</section>
+	<section id="about" class="row">
+		<aside class="col-sm-3">
+			<h3>About</h3>
+		</aside>
+		<div class="col-sm-9">
+			<p>Chris Schmich is a passionate technical leader with nearly ten years of industry experience. He is proficient in creating and scaling desktop, web, and mobile software systems. He is also an active open source community member.</p>
+		</div>
+	</section>
+	<section id="profiles" class="row">
+		<aside class="col-sm-3">
+			<h3>Profiles</h3>
+		</aside>
+		<div class="col-sm-9">
+			<div class="row">
+				<div class="col-sm-6">
+					<strong class="network">
+						GitHub
+					</strong>
+						<div class="url">
+							<a href="https://github.com/schmich">https://github.com/schmich</a>
+						</div>
+				</div>
+				<div class="col-sm-6">
+					<strong class="network">
+						LinkedIn
+					</strong>
+						<div class="url">
+							<a href="https://linkedin.com/in/schmich">https://linkedin.com/in/schmich</a>
+						</div>
+				</div>
+				<div class="col-sm-12">
+					<strong class="network">
+						StackOverflow
+					</strong>
+						<div class="url">
+							<a href="http://stackoverflow.com/users/332960/chris-schmich">http://stackoverflow.com/users/332960/chris-schmich</a>
+						</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section id="work" class="row">
+		<aside class="col-sm-3">
+			<h3>Work</h3>
+		</aside>
+		<div class="col-sm-9">
+			<div class="row">
+			<div class="col-sm-12">
+				<h4 class="strike-through">
+					<span>Agility Speaks</span>
+					<span class="date">
+						08/2014 — Present
+					</span>
+				</h4>
+				<div class="website pull-right">
+					<a href=""></a>
+				</div>
+				<div class="position">
+					Partner Developer, New Projects
+				</div>
+				<div class="summary">
+					<p></p>
+				</div>
+				<h4>Highlights</h4>
+				<ul class="highlights">
+					<li class="bullet">Built a distributed system to collect and analyze Twitter data</li>
+					<li class="bullet">Collected billions of records and hundreds of millions of users</li>
+					<li class="bullet">Managed with supervisord, scaled with Redis and PostgreSQL</li>
+				</ul>
+			</div>
+			<div class="col-sm-12">
+				<h4 class="strike-through">
+					<span>Skyforge, Inc.</span>
+					<span class="date">
+						03/2012 — 08/2014
+					</span>
+				</h4>
+				<div class="website pull-right">
+					<a href=""></a>
+				</div>
+				<div class="position">
+					Co-founder and CTO
+				</div>
+				<div class="summary">
+					<p></p>
+				</div>
+				<h4>Highlights</h4>
+				<ul class="highlights">
+					<li class="bullet">Co-founder of Skyforge, an automated Android cloud testing service</li>
+					<li class="bullet">Did customer development and market research</li>
+					<li class="bullet">Built Android emulator automation framework in Java with a Rails front-end</li>
+					<li class="bullet">Used AWS to provide service management and scalability</li>
+				</ul>
+			</div>
+			<div class="col-sm-12">
+				<h4 class="strike-through">
+					<span>Skyforge, Inc. (Consulting)</span>
+					<span class="date">
+						03/2012 — 08/2014
+					</span>
+				</h4>
+				<div class="website pull-right">
+					<a href=""></a>
+				</div>
+				<div class="position">
+          Software Developer
+				</div>
+				<div class="summary">
+					<p></p>
+				</div>
+				<h4>Highlights</h4>
+				<ul class="highlights">
+					<li class="bullet">Consulted and developed for new and established businesses</li>
+					<li class="bullet">Created a scalable Scrapy-based web scraping infrastructure in Python</li>
+					<li class="bullet">Audited security and implemented billing to help launch a media website</li>
+					<li class="bullet">Implemented custom WordPress plugins for an e-commerce site</li>
+					<li class="bullet">Built and launched a Rails-based site for a startup</li>
+				</ul>
+			</div>
+			<div class="col-sm-12">
+				<h4 class="strike-through">
+					<span>Microsoft</span>
+					<span class="date">
+						06/2005 — 03/2012
+					</span>
+				</h4>
+				<div class="website pull-right">
+					<a href=""></a>
+				</div>
+				<div class="position">
+					Software Development Engineer
+				</div>
+				<div class="summary">
+					<p></p>
+				</div>
+				<h4>Highlights</h4>
+				<ul class="highlights">
+					<li class="bullet">Worked on Visual Studio&#x27;s software diagnostics team</li>
+					<li class="bullet">Two years' experience participating in Microsoft&#x27;s Emerging Leader Bench program</li>
+					<li class="bullet">Contributed to customer-facing tools including performance and memory profiling, code coverage, code analysis, and test impact analysis</li>
+					<li class="bullet">Worked across multiple organizations including Windows, Office, SQL, and Visual Studio to support and promote tooling adoption </li>
+					<li class="bullet">Filed three patent applications (see below)</li>
+				</ul>
+			</div>
+			<div class="col-sm-12">
+				<h4 class="strike-through">
+					<span>Microsoft</span>
+					<span class="date">
+						06/2005 — 08/2005
+					</span>
+				</h4>
+				<div class="website pull-right">
+					<a href=""></a>
+				</div>
+				<div class="position">
+					Software Development Engineer (Intern)
+				</div>
+				<div class="summary">
+					<p>Added line-level sampling to the Visual Studio Profiler to help identify performance bottlenecks in desktop and web applications.</p>
+				</div>
+			</div>
+			</div>
+		</div>
+	</section>
+
+	
+	<section id="education" class="row">
+		<aside class="col-sm-3">
+			<h3>Education</h3>
+		</aside>
+		<div class="col-sm-9">
+			<div class="row">
+			<div class="col-sm-12">
+				<h4 class="strike-through">
+					<span>University of Illinois at Urbana-Champaign</span>
+					<span class="date">
+						2002 — 2006
+					</span>
+				</h4>
+				<div class="area">
+					Computer Science
+				</div>
+				<div class="studyType">
+					Bachelor of Science
+				</div>
+			</div>
+			</div>
+		</div>
+	</section>
+	
+	
+	<section id="publications" class="row">
+		<aside class="col-sm-3">
+			<h3>Patents</h3>
+		</aside>
+		<div class="col-sm-9">
+			<div class="row">
+			<div class="col-sm-12">
+				<h4 class="strike-through">
+					<span>Runtime Type Identification of Native Heap Allocations</span>
+					<span class="date">
+						2011
+					</span>
+				</h4>
+				<div class="website pull-right">
+					<a href="http://www.google.com/patents/US20130091337"></a>
+				</div>
+				<div class="publisher">
+					<em>Microsoft</em>
+					<strong></strong>
+				</div>
+				<div class="summary">
+					<p>Improves native memory profiling by using the compiler&#x27;s debug information and call site information to determine the type of allocated objects on the heap.</p>
+				</div>
+			</div>
+			<div class="col-sm-12">
+				<h4 class="strike-through">
+					<span>Path-Sensitive Visualizations of Profiling and Trace Data</span>
+					<span class="date">
+						2011
+					</span>
+				</h4>
+				<div class="website pull-right">
+					<a href="http://www.google.com/patents/US20120311540"></a>
+				</div>
+				<div class="publisher">
+					<em>Microsoft</em>
+					<strong></strong>
+				</div>
+				<div class="summary">
+					<p>Enables context-sensitive diagnostic information for both performance and debugging purposes.</p>
+				</div>
+			</div>
+			<div class="col-sm-12">
+				<h4 class="strike-through">
+					<span>Dynamic Instrumentation of Software Code</span>
+					<span class="date">
+						2010
+					</span>
+				</h4>
+				<div class="website pull-right">
+					<a href="http://www.google.com/patents/US20120167057"></a>
+				</div>
+				<div class="publisher">
+					<em>Microsoft</em>
+					<strong></strong>
+				</div>
+				<div class="summary">
+					<p>Enables runtime instrumentation of native code, providing a more seamless diagnostic experience by avoiding up-front instrumentation.</p>
+				</div>
+			</div>
+			</div>
+		</div>
+	</section>
+	
+	<section class="row">
+		<aside class="col-sm-3">
+			<h3>Skills</h3>
+		</aside>
+		<div class="col-sm-9">
+			<div class="row">
+			<div class="col-sm-12">
+        <p><em>Front-end</em> HTML, CSS, SASS, JavaScript, Angular.js, jQuery</p>
+        <p><em>Back-end</em> Ruby, Rails, Python, PHP, Node, MongoDB, Redis, SQL</p>
+        <p><em>Client</em> C/C++, C#, Java, .NET</p>
+			</div>
+		</div>
+	</section>
+	
+
+
+	
+
+	</div>
+	
+	</body>
+</html>
